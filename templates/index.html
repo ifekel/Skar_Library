@@ -1,0 +1,14 @@
+{% extends 'presets/_base.html' %}
+{% load static %}
+{% block title %}Skars Library {% endblock %}
+
+{% block content %}
+{% include 'presets/_navbar.html' %}
+
+<div class="box-content">
+    <h2>Skars Bookstore</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem, beatae tempore quod architecto commodi mollitia maxime repellat saepe enim eos, fugit distinctio cumque! Repellat culpa perspiciatis aspernatur deserunt accusamus incidunt at saepe ratione quos ut! Consequatur, eligendi modi soluta voluptatibus eos laudantium, labore amet fugiat, sit tenetur quisquam sint doloribus!</p>
+    <a href="{% url 'account_login' %}" class="btn btn-outline-warning">Join</a>
+</div>
+
+{% endblock %}

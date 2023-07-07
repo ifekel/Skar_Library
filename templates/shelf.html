@@ -1,0 +1,15 @@
+{% extends 'presets/_base.html' %}
+{% load static %}
+{% block title %}{{ user }} - Shelf{% endblock %}
+
+{% block content %}
+{% include 'presets/dashboard-navbar.html' %}
+
+<main class="w-100 d-flex align-items-center justify-content-center">
+    <div class="center-content d-flex flex-column align-items-center justify-content-center flex-">
+        <h3>You have {{ book }} books in your shelf.</h3>
+        <a href="#" class="btn btn-outline-warning btn-lg">Add book</a>
+    </div>
+</main>
+
+{% endblock %}

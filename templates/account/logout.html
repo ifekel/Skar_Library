@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skars Bookstore | Logout</title>
+
+    <link rel="stylesheet" href="{% static 'vendor/aos/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/Font-awesome/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+</head>
+
+<body>
+    <form method="post" class="wrapper">
+        <div class="top-banner mb-5">
+            <h3>Are you sure you want to logout?</h3>
+        </div>
+        {% csrf_token %}
+        <input type="submit" class="btn" value="LOGOUT">
+    </form>
+</body>
+
+</html>

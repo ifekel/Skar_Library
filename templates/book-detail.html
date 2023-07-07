@@ -1,0 +1,9 @@
+{% extends 'presets/_base.html' %}
+{% load static %}
+{% block title %}{{ user }} - Dashboard | Library | {{ book.id }}{% endblock %}
+
+{% block content %}
+{% include 'presets/dashboard-navbar.html' %}
+
+<h1>{{ book.name }}</h1>
+{% endblock %}

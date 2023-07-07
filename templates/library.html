@@ -1,0 +1,53 @@
+{% extends 'presets/_base.html' %}
+{% load static %}
+{% block title %}{{ user }} - Lirary{% endblock %}
+
+{% block content %}
+{% include 'presets/dashboard-navbar.html' %}
+
+<main>
+    <div class="top-menu">
+        <div class="container d-flex justify-content-between align-items-center p-3">
+            <a href="{% url 'new_book' %}" class="btn btn-outline-danger">Add Book</a>
+            <div class="search-box">
+                <form method="post" action="#" class="search-form">
+                    {% csrf_token %}
+                    <input class="search-field" type="search" placeholder="Search for book">
+                    <button class="btn btn-warning bi bi-search" type="submit"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="books-content container">
+        <div class="row gy-3">
+            {% for book in books %}
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-footer">
+                        <p><b>Name</b>: <i>{{ book.name }}</i></p>
+                        <p><b>Author</b>: <i>{{ book.author }}</i></p>
+                        {% if book.price == 0.0 %}
+                        <p><b>Price</b>: <i>Free</i></p>
+                        {% else %}
+                        <p><b>Price</b>: <i>{{ book.price }}</i></p>
+                        {% endif %}
+                        {% if book.ratings == 1.0 %}
+                        <p><b>Rating</b>: <i class="bi bi-star-fill"></i></p>
+                        {% elif book.ratings >= 5.0 %} <p><b>Rating</b>: <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <i>{{ book.ratings }}</i></p>
+                        {% elif book.ratings >= 4.0 %} <p><b>Rating</b>: <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <i>{{ book.ratings }}</i></p>
+                        {% elif book.ratings >= 3.0 %} <p><b>Rating</b>: <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <i>{{ book.ratings }}</i></p>
+                        {% elif book.ratings >= 2.0 %} <p><b>Rating</b>: <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <i>{{ book.ratings }}</i></p>
+                        {% elif book.ratings >= 1.0 %} <p><b>Rating</b>: <i class="bi bi-star-fill"></i> <i>{{ book.ratings }}</i></p>
+                        {% endif %}
+                        <div class="footer-options">
+                            <a href="" class="btn btn-danger bi bi-cart book" data-id="{{ book.id }}"></a>
+                            <a href="{% url 'book_item' book.id %}" class="btn btn-primary">View <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}

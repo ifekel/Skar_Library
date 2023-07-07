@@ -1,0 +1,15 @@
+<header class="sticky-top" id="header">
+    <div class="container-fluid">
+        <h1 class="logo me-auto"><a href="{% url 'home' %}" class="navbar-brand" title="Home"><i class="bi bi-book mt-2"></i>Skars Bookstore</a></h1>
+
+        <nav id="navbar" class="nav">
+            <ul class="navmenu responsive">
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'account_login' %}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url 'account_signup' %}" class="nav-link">Signup</a></li>
+                <li class="nav-item"><a href="{% url 'terms' %}" class="nav-link">Terms And Condition</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" id="mobile-nav-toggle"></i>
+        </nav>
+    </div>
+</header>
